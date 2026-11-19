@@ -22,11 +22,29 @@ class TestFraction:
         assert f.numerator == 3
         assert f.denominator == 4
 
+    def test_zero_fraction(self):
+        f = Fraction(0, 5)
+        assert f.numerator == 0
+        assert f.denominator == 1
+
     def test_invalid_denominator(self): #at klassen ikke lar ugyldige nevnere være med 
         with pytest.raises(ValueError):
             Fraction(1, 0)
         with pytest.raises(ValueError):
             Fraction(1, -2)
+
+    def test_invalid_types(self):
+        with pytest.raises(TypeError):
+            Fraction(1.5, 2)
+
+        with pytest.raises(TypeError):
+            Fraction(1, 2.5)
+
+        with pytest.raises(TypeError):
+            Fraction("1", 2)
+
+        with pytest.raises(TypeError):
+            Fraction(1, True)
 
 # comparisons
 
@@ -67,6 +85,3 @@ class TestFraction:
     def test_division_by_zero(self):
         with pytest.raises(ZeroDivisionError): #tester om man får feil om man deler på 0
             Fraction(1, 2) / Fraction(0, 1)
-
-    def test_negative(self):
-        assert -Fraction(1, 2) == Fraction(-1, 2) #skjekker om den kan sette negativ tegn forran en brøk

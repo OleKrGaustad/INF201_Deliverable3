@@ -104,6 +104,18 @@ class TestConversions:
         assert k.value == pytest.approx(298.15, abs=TOLERANCE)
         assert k.unit == "K"
 
+    def test_convert_to_case_insensitive(self):
+        t = Temperature(25, "C")
+
+        f = t.convert_to("f")
+        k = t.convert_to("k")
+
+        assert f.value == pytest.approx(77.0, abs=TOLERANCE)
+        assert f.unit == "F"
+
+        assert k.value == pytest.approx(298.15, abs=TOLERANCE)
+        assert k.unit == "K"
+
     def test_convert_to_invalid_unit_raises(self):
         with pytest.raises(ValueError):
             Temperature(25, "C").convert_to("X")
@@ -150,6 +162,16 @@ class TestComparisons:
     def test_greater_equal(self):
         assert Temperature(100, "C") >= Temperature(212, "F")
 
+    def test_comparison_with_other_types(self):
+        t = Temperature(25, "C")
+
+        assert t.__eq__(5) is NotImplemented
+        assert t.__ne__(5) is NotImplemented
+        assert t.__lt__(5) is NotImplemented
+        assert t.__le__(5) is NotImplemented
+        assert t.__gt__(5) is NotImplemented
+        assert t.__ge__(5) is NotImplemented
+        
 # 6. formatting
 
 class TestFormatting:

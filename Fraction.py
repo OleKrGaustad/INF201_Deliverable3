@@ -7,13 +7,18 @@ from math import gcd
 class Fraction:
     """A fraction with a numerator and a positive denominator"""
 
+
+#initialization
+
     def __init__(self, numerator: int, denominator: int = 1) -> None:
-        for part in (numerator, denominator):
-            if isinstance(part, bool) or not isinstance(part, int):
-                raise TypeError("Numerator and denominator must be integers")
+        if isinstance(numerator, bool) or not isinstance(numerator, int):
+            raise TypeError("Numerator must be an integer")
+
+        if isinstance(denominator, bool) or not isinstance(denominator, int):
+            raise TypeError("Denominator must be an integer")
 
         if denominator <= 0:
-            raise ValueError("denominator must be bigger than zero")
+            raise ValueError("Denominator must be positive")
 
         divisor = gcd(numerator, denominator)
         self._numerator = numerator // divisor
@@ -98,11 +103,8 @@ class Fraction:
             return NotImplemented
         return self._numerator * o._denominator >= o._numerator * self._denominator
 
-    def __hash__(self) -> int:
-        return hash((self._numerator, self._denominator))
 
-
-# Arithmetic operators
+# spesials
     def __add__(self, other):
         o = self._coerce(other)
         if o is None:
@@ -125,12 +127,6 @@ class Fraction:
             self._denominator * o._denominator,
         )
 
-    def __rsub__(self, other):
-        o = self._coerce(other)
-        if o is None:
-            return NotImplemented
-        return o.__sub__(self)
-
     def __mul__(self, other):
         o = self._coerce(other)
         if o is None:
@@ -152,40 +148,3 @@ class Fraction:
             self._numerator * o._denominator,
             self._denominator * o._numerator,
         )
-
-    def __rtruediv__(self, other):
-        o = self._coerce(other)
-        if o is None:
-            return NotImplemented
-        return o.__truediv__(self)
-
-    def __neg__(self) -> Fraction:
-        return Fraction(-self._numerator, self._denominator)
-
-    def __abs__(self) -> Fraction:
-        return Fraction(abs(self._numerator), self._denominator)
-
-    def __pow__(self, exponent):
-        if isinstance(exponent, bool) or not isinstance(exponent, int):
-            return NotImplemented
-
-        if exponent >= 0:
-            return Fraction(
-                self._numerator ** exponent,
-                self._denominator ** exponent,
-            )
-
-        if self._numerator == 0:
-            raise ZeroDivisionError("Zero cannot have a negative power")
-
-        return self._from_ratio(
-            self._denominator ** -exponent,
-            self._numerator ** -exponent,
-        )
-
-#conversions
-    def __float__(self) -> float:
-        return self._numerator / self._denominator
-
-    def __bool__(self) -> bool:
-        return self._numerator != 0
