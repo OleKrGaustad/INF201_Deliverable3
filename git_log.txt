@@ -1,13 +1,18 @@
-* 1556a4a - Dominika Leszczynska, 3 minutes ago : commit 8
-*   a496da3 - Dominika Leszczynska, 8 minutes ago : Resolve merge conflict
+* 95fec89 - Dominika Leszczynska, 7 days ago : pdf
+* 35b3a47 - Dominika Leszczynska, 7 days ago : ki
+* 72ad616 - Dominika Leszczynska, 7 days ago : siste
+* 639f8d9 - Dominika Leszczynska, 7 days ago : commit 8
+* cf516d1 - Dominika Leszczynska, 7 days ago : siste
+* 1556a4a - Dominika Leszczynska, 7 days ago : commit 8
+*   a496da3 - Dominika Leszczynska, 7 days ago : Resolve merge conflict
 |\  
-| * fa5afd1 - Dominika Leszczynska, 30 minutes ago : commit6
-* | c51a20b - Dominika Leszczynska, 17 minutes ago : commit 7
-* | fcfabd5 - Dominika Leszczynska, 19 minutes ago : fail
-* | c9cc885 - Dominika Leszczynska, 21 minutes ago : commit6
+| * fa5afd1 - Dominika Leszczynska, 7 days ago : commit6
+* | c51a20b - Dominika Leszczynska, 7 days ago : commit 7
+* | fcfabd5 - Dominika Leszczynska, 7 days ago : fail
+* | c9cc885 - Dominika Leszczynska, 7 days ago : commit6
 |/  
-* adc0587 - Dominika Leszczynska, 33 minutes ago : commit 5
-* dcef8bf - Dominika Leszczynska, 41 minutes ago : comit 4
-* 9c3464a - Dominika Leszczynska, 2 hours ago : commit3
-* 55b900d - Dominika Leszczynska, 27 hours ago : comit 2
-* d2b441b - Dominika Leszczynska, 28 hours ago : commit 1
+* adc0587 - Dominika Leszczynska, 7 days ago : commit 5
+* dcef8bf - Dominika Leszczynska, 7 days ago : comit 4
+* 9c3464a - Dominika Leszczynska, 7 days ago : commit3
+* 55b900d - Dominika Leszczynska, 8 days ago : comit 2
+* d2b441b - Dominika Leszczynska, 8 days ago : commit 1
